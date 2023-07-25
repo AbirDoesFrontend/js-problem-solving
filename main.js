@@ -30,7 +30,7 @@ let result = positiveSummer(inputArray);
 
 // Task 3: Write a JavaScript program to find the most frequent element in an array and return it.
 
-const findMostFrequentElement = arr => {
+const findMostFrequentElement = (arr) => {
   let frequency = {};
 
   for (let i = 0; i < arr.length; i++) {
@@ -52,9 +52,33 @@ const findMostFrequentElement = arr => {
   }
 
   return parseInt(mostFrequentElement);
-}
+};
 
 let inputNumbers = [3, 5, 2, 5, 3, 3, 1, 4, 5];
 let outputNumber = findMostFrequentElement(inputNumbers);
 
+// Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers.
+
+const findTwoNumbersWithSum = (arr, target) =>{
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+
+    if (sum === target) {
+      return [left, right];
+    } else if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return []; 
+}
+
+let sortedArray = [1, 3, 6, 8, 11, 15];
+let targetValue = 9;
+let sortedResult = findTwoNumbersWithSum(sortedArray, targetValue);
 
