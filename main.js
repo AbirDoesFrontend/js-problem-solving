@@ -28,3 +28,33 @@ const positiveSummer = (arr) => {
 let inputArray = [2, -5, 10, -3, 7];
 let result = positiveSummer(inputArray);
 
+// Task 3: Write a JavaScript program to find the most frequent element in an array and return it.
+
+const findMostFrequentElement = arr => {
+  let frequency = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (frequency[arr[i]] === undefined) {
+      frequency[arr[i]] = 1;
+    } else {
+      frequency[arr[i]]++;
+    }
+  }
+
+  let mostFrequentElement;
+  let highestFrequency = 0;
+
+  for (let element in frequency) {
+    if (frequency[element] > highestFrequency) {
+      highestFrequency = frequency[element];
+      mostFrequentElement = element;
+    }
+  }
+
+  return parseInt(mostFrequentElement);
+}
+
+let inputNumbers = [3, 5, 2, 5, 3, 3, 1, 4, 5];
+let outputNumber = findMostFrequentElement(inputNumbers);
+
+
