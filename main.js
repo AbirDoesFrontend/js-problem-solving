@@ -1,6 +1,6 @@
 // Task 1 : Create a function that takes a string as input and returns the reversed version of the string without using the built-in reverse() method.
 
-const stringReverser = (str) => {
+const stringReverser = str => {
   let reversedStr = "";
 
   for (let i = str.length - 1; i >= 0; i--) {
@@ -14,7 +14,7 @@ const outputValue = stringReverser(inputValue);
 
 // Task 2 : Create a function that takes an array of numbers as input and returns the sum of all positive numbers in the array.
 
-const positiveSummer = (arr) => {
+const positiveSummer = arr => {
   let sum = 0;
 
   for (let i = 0; i < arr.length; i++) {
@@ -30,7 +30,7 @@ let result = positiveSummer(inputArray);
 
 // Task 3: Write a JavaScript program to find the most frequent element in an array and return it.
 
-const findMostFrequentElement = (arr) => {
+const findMostFrequentElement = arr => {
   let frequency = {};
 
   for (let i = 0; i < arr.length; i++) {
@@ -109,7 +109,7 @@ let resultNum = calculate(number1, number2, operator);
 
 // Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
 
-const generateRandomPassword = (length) => {
+const generateRandomPassword = length => {
   const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
@@ -132,7 +132,7 @@ let randomPassword = generateRandomPassword(passwordLength);
 
 // Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
 
-const romanToInt = (romanNumeral) => {
+const romanToInt = romanNumeral => {
   const romanNumeralsMap = {
     I: 1,
     V: 5,
@@ -161,3 +161,32 @@ const romanToInt = (romanNumeral) => {
 
 let romanNumeralString = "IV";
 let integerValue = romanToInt(romanNumeralString);
+
+// Task 8: Implement a JavaScript function to find the second smallest element in an array of numbers. The function should return the second smallest number.
+
+const findSecondSmallest = arr => {
+  if (arr.length < 2) {
+    return "Error: Array must contain at least two elements.";
+  }
+
+  let smallest = Infinity;
+  let secondSmallest = Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < smallest) {
+      secondSmallest = smallest;
+      smallest = arr[i];
+    } else if (arr[i] < secondSmallest && arr[i] !== smallest) {
+      secondSmallest = arr[i];
+    }
+  }
+
+  if (secondSmallest === Infinity) {
+    return "Error: All elements in the array are the same.";
+  }
+
+  return secondSmallest;
+};
+
+let numbersArray = [5, 2, 8, 1, 9, 3];
+let secondSmallestNumber = findSecondSmallest(numbersArray);
