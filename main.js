@@ -59,7 +59,7 @@ let outputNumber = findMostFrequentElement(inputNumbers);
 
 // Task 4: Create a function that takes a sorted array of numbers and a target value as input. The function should find two numbers in the array that add up to the target value. Return an array containing the indices of the two numbers.
 
-const findTwoNumbersWithSum = (arr, target) =>{
+const findTwoNumbersWithSum = (arr, target) => {
   let left = 0;
   let right = arr.length - 1;
 
@@ -75,10 +75,35 @@ const findTwoNumbersWithSum = (arr, target) =>{
     }
   }
 
-  return []; 
-}
+  return [];
+};
 
 let sortedArray = [1, 3, 6, 8, 11, 15];
 let targetValue = 9;
 let sortedResult = findTwoNumbersWithSum(sortedArray, targetValue);
+
+// Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
+
+const calculate = (num1, num2, operator) =>{
+  if (operator === "+") {
+    return num1 + num2;
+  } else if (operator === "-") {
+    return num1 - num2;
+  } else if (operator === "*") {
+    return num1 * num2;
+  } else if (operator === "/") {
+    if (num2 === 0) {
+      return "Error: Division by zero is not allowed.";
+    }
+    return num1 / num2;
+  } else {
+    return "Error: Invalid operator. Please use one of +, -, *, or /.";
+  }
+}
+
+let number1 = 5;
+let number2 = 3;
+let operator = "+";
+
+let resultNum = calculate(number1, number2, operator);
 
