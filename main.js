@@ -109,7 +109,7 @@ let resultNum = calculate(number1, number2, operator);
 
 // Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
 
-const generateRandomPassword = length => {
+const generateRandomPassword = (length) => {
   const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
   const numbers = "0123456789";
@@ -125,7 +125,39 @@ const generateRandomPassword = length => {
   }
 
   return password;
-}
+};
 
 let passwordLength = 12;
 let randomPassword = generateRandomPassword(passwordLength);
+
+// Task 7: Implement a function that converts a Roman numeral to an integer. The function should take a Roman numeral string (e.g., "IX" or "XXI") as input and return the corresponding integer value.
+
+const romanToInt = (romanNumeral) => {
+  const romanNumeralsMap = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let result = 0;
+
+  for (let i = 0; i < romanNumeral.length; i++) {
+    const currentChar = romanNumeral[i];
+    const nextChar = romanNumeral[i + 1];
+
+    if (romanNumeralsMap[currentChar] < romanNumeralsMap[nextChar]) {
+      result -= romanNumeralsMap[currentChar];
+    } else {
+      result += romanNumeralsMap[currentChar];
+    }
+  }
+
+  return result;
+};
+
+let romanNumeralString = "IV";
+let integerValue = romanToInt(romanNumeralString);
