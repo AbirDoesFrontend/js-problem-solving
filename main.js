@@ -84,7 +84,7 @@ let sortedResult = findTwoNumbersWithSum(sortedArray, targetValue);
 
 // Task 5: Implement a simple JavaScript calculator. The calculator should take two numbers and an operator (+, -, *, /) as input and return the result of the operation.
 
-const calculate = (num1, num2, operator) =>{
+const calculate = (num1, num2, operator) => {
   if (operator === "+") {
     return num1 + num2;
   } else if (operator === "-") {
@@ -99,7 +99,7 @@ const calculate = (num1, num2, operator) =>{
   } else {
     return "Error: Invalid operator. Please use one of +, -, *, or /.";
   }
-}
+};
 
 let number1 = 5;
 let number2 = 3;
@@ -107,3 +107,25 @@ let operator = "+";
 
 let resultNum = calculate(number1, number2, operator);
 
+// Task 6: Create a program that generates a random password of a specified length. The password should include a mix of uppercase letters, lowercase letters, numbers, and special characters.
+
+const generateRandomPassword = length => {
+  const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
+  const numbers = "0123456789";
+  const specialCharacters = "!@#$%^&*()-_=+[]{}|;:,.<>?";
+
+  const allCharacters =
+    uppercaseLetters + lowercaseLetters + numbers + specialCharacters;
+
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * allCharacters.length);
+    password += allCharacters[randomIndex];
+  }
+
+  return password;
+}
+
+let passwordLength = 12;
+let randomPassword = generateRandomPassword(passwordLength);
